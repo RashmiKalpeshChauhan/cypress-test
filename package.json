@@ -9,7 +9,10 @@
   "author": "rashmi",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^4.6.0",
+    "cypress": "^4.7.0",
     "cypress-xpath": "^1.6.0"
+  },
+  "dependencies": {
+    "node": "^14.4.0"
   }
 }
