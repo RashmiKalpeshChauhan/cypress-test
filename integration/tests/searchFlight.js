@@ -3,17 +3,10 @@ require('cypress-xpath')
 describe('Login Test case',()=>{   
     beforeEach(() => {
         cy.fixture('testData.json').as('testdata')
-        //cy.visit("https://www.tajawal.ae/en");
-        cy.visit('https://ae.almosafer.com/ar', {
-            onBeforeLoad (win) {
-              Object.defineProperty(win.navigator, 'language', {
-                value: 'Klingon'
-              })
-            }
-          })
+        cy.visit("https://www.tajawal.ae/en");      
       })
   
-    xit("ticket value should less than 10000",()=>{ 
+    it("ticket value should less than 10000",()=>{ 
         cy.get('@testdata').then((testdata)=>{
             cy.searchFlight(testdata.origin,testdata.destination) 
             cy.get('.jVxLcd + div').each($el => {
@@ -26,14 +19,7 @@ describe('Login Test case',()=>{
         })          
     })
 
-    it("validate the languge of page is english",()=>{
-        cy.visit('https://ae.almosafer.com/ar', {
-            onBeforeLoad (win) {
-              Object.defineProperty(win.navigator, 'language', {
-                value: 'Klingon'
-              })
-            }
-          })
+    it("validate the languge of page is english",()=>{    
         cy.get('h2').contains("LET'S BOOK YOUR NEXT TRIP")        
     })
     
